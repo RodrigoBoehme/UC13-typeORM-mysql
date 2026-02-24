@@ -24,10 +24,14 @@ export class Usuario{
     //type:varchar ->texto
     //length: 120 - tamanho máximo
     @Column({type:"varchar",length:120})
-    nome!:string
+    nome!:string;
     //unique: true -> não permite repetir email no banco
     //Isso gera uma restrição UNIQUE no MySQL
-    @Column({type:"varchar",length:160,default:true})
+    @Column({type:"varchar",length:160,unique:true})
+    email!:string;
+
+
+    @Column({type:"boolean",default:true})
     ativo!:boolean 
     //@CreateDateColumn()
     //O próprio TypeORM preenche automaticamente 
