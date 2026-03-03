@@ -1,7 +1,5 @@
 import { Usuario } from "../entities/Usuario";
 import { AppDataSource } from "../database/data-source";
-import { NOMEM } from "node:dns";
-import { removeListener } from "node:cluster";
 /**
  * Service = regra de negócio + acesso ao banco
  * Ele não reconhece Express(request/response)
@@ -35,7 +33,7 @@ export class UsuarioService {
     //create monta o objeto da entidade
     const novo = this.repo.create({
       nome: nome.trim(),
-      email: email.trim().toLocaleLowerCase(),
+      email: email.trim().toLowerCase(),
       ativo: true,
     });
     //Save() insere no banco e devolve com o id preenchido
